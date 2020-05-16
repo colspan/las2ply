@@ -22,7 +22,7 @@ def las2ply(input_paths, out_path, skip_rate=0.5, voxel_size=None,
     if estimate_normals:
         pcd.estimate_normals(
             o3d.geometry.KDTreeSearchParamHybrid(
-                radius=0.5,
+                radius=2,
                 max_nn=30))
         pcd.orient_normals_to_align_with_direction()
         pcd = pcd.normalize_normals()
