@@ -12,11 +12,15 @@ def las2ply_cmd():
                         help='voxel down size')
     parser.add_argument('--skip-rate', type=float, default=0.8,
                         help='skip rate')
+    parser.add_argument('--write-ascii', type=bool, default=True,
+                        help='ply format')
 
     args = parser.parse_args()
 
     las2ply.convert.las2ply.las2ply(args.lasfiles, args.output,
-                                    skip_rate=args.skip_rate, voxel_size=args.voxel_size)
+                                    skip_rate=args.skip_rate,
+                                    voxel_size=args.voxel_size,
+                                    write_ascii=args.write_ascii)
 
 
 if __name__ == "__main__":
