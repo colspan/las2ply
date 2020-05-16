@@ -12,6 +12,8 @@ def las2ply_cmd():
                         help='voxel down size')
     parser.add_argument('--skip-rate', type=float, default=0.8,
                         help='skip rate')
+    parser.add_argument('--estimate-normals', type=bool, default=True,
+                        help='estimate normal vectors')
     parser.add_argument('--write-ascii', type=bool, default=False,
                         help='ply format')
 
@@ -20,6 +22,7 @@ def las2ply_cmd():
     las2ply.convert.las2ply.las2ply(args.lasfiles, args.output,
                                     skip_rate=args.skip_rate,
                                     voxel_size=args.voxel_size,
+                                    estimate_normals=args.estimate_normals,
                                     write_ascii=args.write_ascii)
 
 
